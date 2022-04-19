@@ -1,26 +1,16 @@
 import * as React from "react";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title, Paragraph } from "react-native-paper";
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
-export default function CardP() {
+export default function CardP({marca, modelo, imagen, precio }) {
   return (
     <>
       <Card>
-        <Card.Title
-          title="Card Title"
-          subtitle="Card Subtitle"
-          left={LeftContent}
-        />
         <Card.Content>
-          <Title>Card title</Title>
-          <Paragraph>Card content</Paragraph>
+          <Title>{marca}{modelo}</Title>
+          <Paragraph>{precio}</Paragraph>
         </Card.Content>
-        <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
-        <Card.Actions>
-          <Button>Cancel</Button>
-          <Button>Ok</Button>
-        </Card.Actions>
+        <Card.Cover source={{ uri: imagen}} alt={modelo}  style={{ width: "100%", objectFit: "contain", height:300}}  />
       </Card>
     </>
   );
